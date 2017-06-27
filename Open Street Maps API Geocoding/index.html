@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Задание</title>
+    <script type="text/javascript" src="jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="myScript.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="forms">        
+            <div class="address-to-coord-form">
+                <h3>Введите адресс, который вы хотите преобразовать к координатам:</h3>
+                <input type="text" name="query" id="query">
+                <button id="get-coordinates" type="submit">Вычислить координаты</button>
+                <div class="result-coordinates"></div>
+            </div>
+            <div class="coord-to-address-form">
+                <h3>Введите координаты, которые вы хотите преобразовать к адресу:</h3>
+                <label for="lat">Введите широту </label><input type="text" name="lat" id="lat">
+                <label for="lon">Введите долготу </label><input type="text" name="lon" id="lon">
+                <button id="get-address" type="submit">Получить адрес</button>
+                <div class="result-address"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

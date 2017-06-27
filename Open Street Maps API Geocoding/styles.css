@@ -1,0 +1,81 @@
+*
+{
+	margin:0;
+	padding:0;
+}
+
+h3
+{
+	margin-bottom: 10px;
+	color: #333;
+}
+
+.wrapper
+{
+
+	width: 800px;
+	margin: 120px auto 0;
+}
+
+.forms
+{
+	padding: 15px;
+	border: 1px solid #888;
+	border-radius: 10px;
+	-webkit-box-shadow: 0px 0px 15px #222;
+    -moz-box-shadow: 0px 0px 15px #222;
+    box-shadow: 0px 0px 15px #222;
+}
+
+
+.address-to-coord-form
+{
+	margin-bottom: 25px;
+	padding-bottom: 25px;
+	border-bottom: 1px solid gray;
+}
+
+.address-to-coord-form input, .coord-to-address-form input
+{
+	height: 18px;
+	padding: 0px 3px;
+	border-width: 1px;
+	border-radius: 5px;
+	line-height: 18px;
+	font-size: 18px;
+	outline: 0;
+}
+
+.address-to-coord-form input
+{	
+	width: 760px;	
+}
+
+.coord-to-address-form input
+{
+	width: 256px;
+}
+
+#get-address, #get-coordinates
+{
+	height: 30px;
+	width: 770px;
+	padding: 3px;
+	margin: 20px auto 0;
+    display: block;
+    border: 0;
+	outline: 0;
+    border-radius: 5px;
+    -moz-box-shadow: 0px -1px 15px 0px #e0e0e0;
+    -webkit-box-shadow: 0px -1px 15px 0px #e0e0e0;
+    box-shadow: 0px -1px 15px 0px #e0e0e0;
+    background: #70c71c;
+    font: normal 14px "Source Sans Pro", "Helvetica Neue", 'Helvetica', 'Arial', sans-serif;
+    text-align: center;
+    color: #ffffff;
+}
+
+#get-coordinates
+{
+	background: #3181c7;
+}
