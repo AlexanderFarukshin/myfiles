@@ -18,7 +18,12 @@ $('document').ready(function(){
 
                 function(result)
                 {
-                    $('.result-coordinates').empty().append("<p style=\"margin-top: 20px;\">Широта: " + result[0].lat + ". Долгота: " + result[0].lon + "</p>");
+					try{
+						$('.result-coordinates').empty().append("<p style=\"margin-top: 20px;\">Широта: " + result[0].lat + ". Долгота: " + result[0].lon + "</p>");
+					}catch(e){
+						$('.result-coordinates').empty().append("<p style=\"margin-top: 20px;\">Произошла ошибка!</p>");
+					}			
+                    
                 }
             );
 
@@ -49,7 +54,14 @@ $('document').ready(function(){
 
                 function(result)
                 {    
-                    $('.result-address').empty().append("<p style=\"margin-top: 20px;\">Адрес: " + result.display_name + "</p>");
+				
+						
+                    try{
+						$('.result-address').empty().append("<p style=\"margin-top: 20px;\">Адрес: " + result.display_name + "</p>");
+					}catch(e){
+						$('.result-address').empty().append("<p style=\"margin-top: 20px;\">Произошла ошибка!</p>");
+					}
+			
                 }
             );
 
