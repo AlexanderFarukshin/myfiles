@@ -1,75 +1,117 @@
 $('document').ready(function(){
 
-    $('#get-coordinates').click(function(){
+  var FORWARD_GEO_ADDRESS = 'http://nominatim.openstreetmap.org/search/';
+  var REVERSE_GEO_ADDRESS = 'http://nominatim.openstreetmap.org/reverse/';
+  var RESPONSE_LIMIT = 1;
+  var RESPONSE_FORMAT = 'json';
+  var RESPONSE_ZOOM = 15;
+  
+  function transform_adress(address){
+	  	
+    var parts_of_address = address.split(', ');	
+	var new_address = '';
+	
+	parts_of_address.forEach(function(item, i){
+		
+	  if( i == 0){
+		  
+		new_address = item + new_address; 
+		  
+	  }else{
+		  
+		new_address = item + ', ' + new_address;   
+		
+	  }		
+		
+	});	
+	  
+    return new_address;
+	  
+  }
 
-        var query = $('#query').val();
+  $('#get-coordinates').click(function(){
 
-        if(query!=""){
-            
-            $.get(
+    var query = $('#query').val();
 
-                'http://nominatim.openstreetmap.org/search/',
+    if(query != ""){
 
-                {
-                    format: 'json',
-                    q:query, 
-                    limit: 1
-                },
+      $.get(
 
-                function(result)
-                {
-					try{
-						$('.result-coordinates').empty().append("<p style=\"margin-top: 20px;\">Широта: " + result[0].lat + ". Долгота: " + result[0].lon + "</p>");
-					}catch(e){
-						$('.result-coordinates').empty().append("<p style=\"margin-top: 20px;\">Произошла ошибка!</p>");
-					}			
-                    
-                }
-            );
-
-        }
-        else{
-            alert("Строка запроса не должна быть пустой!");
-        }
-
-    });
-
-    $('#get-address').click(function(){
-
-        var lat = $('#lat').val();
-        var lon = $('#lon').val();
-
-        if(lat!="" && lon!=""){
-            
-            $.get(
-
-                'http://nominatim.openstreetmap.org/reverse/',
-
-                {
-                    format: 'json',
-                    lat:lat, 
-                    lon:lon,
-                    zoom: 18
-                },
-
-                function(result)
-                {    
-				
-						
-                    try{
-						$('.result-address').empty().append("<p style=\"margin-top: 20px;\">Адрес: " + result.display_name + "</p>");
-					}catch(e){
-						$('.result-address').empty().append("<p style=\"margin-top: 20px;\">Произошла ошибка!</p>");
-					}
+        FORWARD_GEO_ADDRESS,   
+		
+        {
 			
-                }
-            );
+          format: RESPONSE_FORMAT,
+          q: transform_adress(query), 
+          limit: RESPONSE_LIMIT
+		  
+        },
+		
+        function(result){
+    
+	      try{
+			  
+            $('.result-coordinates').empty().append("<p style=\"margin-top: 20px;\">Широта: " + result[0].lat + " Долгота: " + result[0].lon + "</p>");
+     
+	      }catch(e){
+			  
+            $('.result-coordinates').empty().append("<p style=\"margin-top: 20px;\">Произошла ошибка!</p>");
+          
+		  }	
+		  
+        }	
+		
+      );
+	  
+    }else{
+		
+      alert("Строка запроса не должна быть пустой!");
+    }
 
-        }
-        else{
-            alert("Поля для координат не должны быть пустыми!");
-        }
+  });
 
-    });
+  $('#get-address').click(function(){
+
+    var lat = $('#lat').val();
+    var lon = $('#lon').val();
+
+    if(lat != "" && lon != ""){
+
+      $.get(
+
+        REVERSE_GEO_ADDRESS,
+
+        {
+			
+          format: RESPONSE_FORMAT,
+          lat: lat, 
+          lon: lon,
+          zoom: RESPONSE_ZOOM
+		  
+        },
+
+        function(result){    
+
+          try{
+			  
+            $('.result-address').empty().append("<p style=\"margin-top: 20px;\">" + transform_adress(result.display_name) + "</p>");
+			
+          }catch(e){
+			  
+            $('.result-address').empty().append("<p style=\"margin-top: 20px;\">Произошла ошибка!</p>");
+
+          }
+		  
+        }
+		
+      );
+
+    }else{
+		
+      alert("Поля для координат не должны быть пустыми!");
+ 
+    }
+	
+  });
 
 });

@@ -1,31 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Задание</title>
-    <script type="text/javascript" src="jquery-3.2.1.js"></script>
-    <script type="text/javascript" src="myScript.js"></script>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Задание</title>
+  <script type="text/javascript" src="jquery-3.2.1.js"></script>
+  <script type="text/javascript" src="myScript.js"></script>
+  <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-    <div class="wrapper">
-        <div class="forms">        
-            <div class="address-to-coord-form">
-                <h3>Введите адресс, который вы хотите преобразовать к координатам (Пример: 32 Мира, Екатеринбург, Россия):</h3>
-                <input type="text" name="query" id="query">
-                <button id="get-coordinates" type="submit">Вычислить координаты</button>
-                <div class="result-coordinates"></div>
-            </div>
-            <div class="coord-to-address-form">
-                <h3>Введите координаты, которые вы хотите преобразовать к адресу:</h3>
-                <label for="lat">Введите широту </label><input type="text" name="lat" id="lat">
-                <label for="lon">Введите долготу </label><input type="text" name="lon" id="lon">
-                <button id="get-address" type="submit">Получить адрес</button>
-                <div class="result-address"></div>
-            </div>
+  <div class="wrapper">
+    <div class="forms">        
+      <div class="address-to-coord-form">
+        <h3>Запрос координат адреса</h3>
+		<p><label for="query">Адрес: </label></p>
+        <p><input type="text" name="query" id="query" placeholder="страна, город, улица, дом"></p>
+        <p><button id="get-coordinates" type="submit">Координаты</button></p>
+        <div class="result-coordinates"></div>
         </div>
+      <div class="coord-to-address-form">
+        <h3>Запрос адреса по координатам</h3>
+        <p><label for="lat">Широта: </label></p>
+		<p><input type="text" name="lat" id="lat" placeholder="Значение от -180.00 до 180.00"></p>
+        <p><label for="lon">Долгота: </label></p>
+		<p><input type="text" name="lon" id="lon" placeholder="Значение от -180.00 до 180.00"></p>
+        <p><button id="get-address" type="submit">Адрес</button></p>
+        <div class="result-address"></div>
+      </div>
     </div>
+  </div>
 </body>
 </html>
