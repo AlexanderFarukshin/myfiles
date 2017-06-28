@@ -4,7 +4,7 @@ $('document').ready(function(){
   var REVERSE_GEO_ADDRESS = 'http://nominatim.openstreetmap.org/reverse/';
   var RESPONSE_LIMIT = 1;
   var RESPONSE_FORMAT = 'json';
-  var RESPONSE_ZOOM = 15;
+  var RESPONSE_ZOOM = 18;
   
   function transform_adress(address){
 	  	
