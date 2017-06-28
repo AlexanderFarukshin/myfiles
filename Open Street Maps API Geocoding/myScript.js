@@ -9,21 +9,21 @@ $('document').ready(function(){
   function transform_adress(address){
 	  	
     var parts_of_address = address.split(', ');	
-	var new_address = '';
+	  var new_address = '';
 	
-	parts_of_address.forEach(function(item, i){
+	  parts_of_address.forEach(function(item, i){
 		
-	  if( i == 0){
+	    if( i == 0){
 		  
-		new_address = item + new_address; 
+		    new_address = item + new_address; 
 		  
-	  }else{
+	    }else{
 		  
-		new_address = item + ', ' + new_address;   
+		    new_address = item + ', ' + new_address;   
 		
-	  }		
+	    }		
 		
-	});	
+	  });	
 	  
     return new_address;
 	  
@@ -49,15 +49,15 @@ $('document').ready(function(){
 		
         function(result){
     
-	      try{
+	        try{
 			  
             $('.result-coordinates').empty().append("<p style=\"margin-top: 20px;\">Широта: " + result[0].lat + " Долгота: " + result[0].lon + "</p>");
      
-	      }catch(e){
+	        }catch(e){
 			  
             $('.result-coordinates').empty().append("<p style=\"margin-top: 20px;\">Произошла ошибка!</p>");
           
-		  }	
+		      }	
 		  
         }	
 		
@@ -66,6 +66,7 @@ $('document').ready(function(){
     }else{
 		
       alert("Строка запроса не должна быть пустой!");
+      
     }
 
   });
